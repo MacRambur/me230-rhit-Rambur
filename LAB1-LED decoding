@@ -1,0 +1,34 @@
+// C++ code
+//
+void setup()
+{
+  pinMode(2, INPUT_PULLUP);
+  pinMode(3, INPUT_PULLUP);
+  
+  //output for LEDs
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  
+   //output for H bridge's and resistors
+  pinMode(11, OUTPUT);
+  pinMode(12, OUTPUT);
+  pinMode(13, OUTPUT);
+
+}
+  
+void loop()
+{
+   // Outputs for the debugging LEDs
+  digitalWrite(4, !digitalRead(2)); // assigning pin 4 to react to input from pin 2
+  digitalWrite(5, !digitalRead(3)); // assigning pin 5 to react to input from pin 3
+  analogWrite(6, analogRead(0)/4); // taking value from pot and quartering it
+  
+  // Outputs for transistors, H-bridge, etc
+  digitalWrite(12, !digitalRead(2)); // assigning pin 11 to react to input from pin 2
+  digitalWrite(13, !digitalRead(3)); // assigning pin 12 to react to input from pin 2
+  analogWrite(11, analogRead(0)/4); // assigning pin 13 to react to input from pin 2
+  
+  delay(10); // wait for ten milliseconds
+
+}
